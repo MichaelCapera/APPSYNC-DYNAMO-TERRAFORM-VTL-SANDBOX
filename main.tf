@@ -14,6 +14,16 @@ resource "aws_dynamodb_table" "example_table" {
   }
 }
 
+# Create AppSync API
+
+resource "aws_appsync_graphql_api" "example" {
+  name                = "${var.appsync_name}"
+  authentication_type = "API_KEY"
+
+  schema = file("schema.graphql")
+
+}
+
 # Create AppSync Api Key
 
 resource "aws_appsync_api_key" "example" {
