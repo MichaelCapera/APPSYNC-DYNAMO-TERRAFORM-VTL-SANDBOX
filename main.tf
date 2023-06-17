@@ -73,7 +73,7 @@ resource "aws_iam_policy" "appsync_dynamodb_policy" {
         "dynamodb:UpdateItem",
         "dynamodb:DeleteItem"
       ],
-      "Resource": "arn:aws:dynamodb:us-east-1:383961856456:table/example-table"
+      "Resource": "${var.data_base_arn}"
     }
   ]
 }
