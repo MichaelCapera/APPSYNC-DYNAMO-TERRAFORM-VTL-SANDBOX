@@ -24,6 +24,7 @@ git checkout create_resources
 
 table_name="table1" # Enter your table name
 appsync_name="api1" # Enter your appsync name
+table_arn=""        # Enter your table name
 
 -- Fill the table name and the appsync name
 
