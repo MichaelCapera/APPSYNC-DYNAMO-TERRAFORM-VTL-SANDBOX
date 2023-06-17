@@ -1,2 +1,6 @@
-# another_resolver.res.vtl
-$util.toJson($ctx.result)
+#set($resp = {
+  "id": "$context.result.id",
+  "field1": "$context.result",
+  "field2" : 1
+} )
+$util.toJson($resp)

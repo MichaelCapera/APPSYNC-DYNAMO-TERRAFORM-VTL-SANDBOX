@@ -1,2 +1,5 @@
-## example_resolver.res.vtl
-$util.toJson($ctx.result.Item)
+#set($resp = {
+  "id": "$context.result.id",
+  "name": "$context.result.author"
+} )
+$util.toJson($resp)

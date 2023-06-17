@@ -45,12 +45,12 @@ resource "aws_appsync_resolver" "example_resolver" {
 
 resource "aws_appsync_resolver" "another_resolver" {
   api_id            = aws_appsync_graphql_api.example.id
-  type              = "Query"
-  field             = "getExample2"
+  type              = "Mutation"
+  field             = "createRecord"
   request_template  = file("${path.module}/resolvers/another_resolver.req.vtl")
   response_template = file("${path.module}/resolvers/another_resolver.res.vtl")
 
-  data_source = aws_appsync_datasource.exampleDatasource.name
+  data_source       = aws_appsync_datasource.exampleDatasource.name
 }
 
 # Create IAM Policy

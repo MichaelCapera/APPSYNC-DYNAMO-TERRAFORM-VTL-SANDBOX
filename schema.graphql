@@ -1,6 +1,20 @@
 type Query {
   getExample(id: ID!): Example
-  getExample2(id: ID!): Example
+}
+
+type Mutation {
+  createRecord(input: RecordInput!): Record
+}
+
+input RecordInput {
+  field1: String!
+  field2: Int!
+}
+
+type Record {
+  id: ID!
+  field1: String!
+  field2: Int!
 }
 
 type Example {
