@@ -1,0 +1,9 @@
+type Query {
+  getExample(id: ID!): Example
+  getExample2(id: ID!): Example
+}
+
+type Example {
+  id: ID!
+  name: String!
+}
