@@ -1,6 +1,6 @@
 ## Declare variables
 
-variable "data_base_name" {}
+variable "table_name" {}
 
 variable "appsync_name" {}
 
