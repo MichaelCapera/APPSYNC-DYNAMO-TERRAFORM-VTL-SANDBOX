@@ -98,7 +98,7 @@ resource "aws_iam_policy" "appsync_dynamodb_policy" {
         "dynamodb:UpdateItem",
         "dynamodb:DeleteItem"
       ],
-      "Resource": "${var.data_base_arn}"
+      "Resource": "${var.table_arn}"
     }
   ]
 }

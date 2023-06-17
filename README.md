@@ -1,46 +1,47 @@
 ## Requirements
 
-AWS credentials in env vars
+AWS access credentials in environment variables
+
+AWS configured with access credentials
+
+Terraform binary
+
+## Steps
+
+## Create Policy
+
+## Create Api And Data Base With IAM Policy And Assing Policy To Role
+
+-- Create a file in the root dir:
+
+ dev.tfvars
+
+-- Copy and paste in the dev.tfvars:
+
+table_name="table1" # Enter your table name
+appsync_name="api1" # Enter your appsync name
+table_arn="" # Enter your table name
+
+-- Fill the table name and the appsync name with the same name 
+that was registered in the previous branch
+
+-- Enter the aws console copy and paste the arn of the table that was 
+created and paste it in the table arn field
 
 ## Init Terraform
 
 terraform init
 
-## Run validate
+## Run Terraform Validate
 
 terraform validate
 
-## Run plan
-
-terraform plan
-
-## Run apply
-
-terraform apply
-
-## Crete in the project root the file
-
-dev.tfvars
-
-## Write in the tfvars the arn of the data base as a variable
-
-data_base_arn="The data base arn here !!!!"
-
-## Run terraform commands calling the variables
-
-# Initialize terraform in the project
-
-terraform init
-
-# Validate terraform file syntax
-
-terraform validate
-
-# Plan with vars
+# Run Terraform Plan with vars
 
 terraform plan -var-file dev.tfvars
 
-# Apply with vars
+# Run Terraform Apply with vars
 
 terraform apply -var-file dev.tfvars -auto-approve
+
 
