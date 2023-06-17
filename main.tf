@@ -32,43 +32,48 @@ resource "aws_appsync_api_key" "example" {
 }
 
 # Create Resolvers API
-resource "aws_appsync_resolver" "example_resolver" {
+# Get Data
+resource "aws_appsync_resolver" "get_resolver" {
   api_id            = aws_appsync_graphql_api.example.id
   type              = "Query"
   field             = "getExample"
-  request_template  = file("${path.module}/resolvers/example_resolver.req.vtl")
-  response_template = file("${path.module}/resolvers/example_resolver.res.vtl")
+  request_template  = file("${path.module}/resolvers/getData/get_resolver.req.vtl")
+  response_template = file("${path.module}/resolvers/getData/get_resolver.res.vtl")
 
   data_source = aws_appsync_datasource.exampleDatasource.name
 
 }
 
-resource "aws_appsync_resolver" "another_resolver" {
+# Post Data
+
+resource "aws_appsync_resolver" "post_resolver" {
   api_id            = aws_appsync_graphql_api.example.id
   type              = "Mutation"
   field             = "createRecord"
-  request_template  = file("${path.module}/resolvers/another_resolver.req.vtl")
-  response_template = file("${path.module}/resolvers/another_resolver.res.vtl")
+  request_template  = file("${path.module}/resolvers/postData/post_resolver.req.vtl")
+  response_template = file("${path.module}/resolvers/postData/post_resolver.res.vtl")
 
   data_source = aws_appsync_datasource.exampleDatasource.name
 }
 
-resource "aws_appsync_resolver" "update_resolver" {
+# Put Data
+
+resource "aws_appsync_resolver" "put_resolver" {
   api_id            = aws_appsync_graphql_api.example.id
   type              = "Mutation"
   field             = "updateRecord"
-  request_template  = file("${path.module}/resolvers/update_resolver.req.vtl")
-  response_template = file("${path.module}/resolvers/update_resolver.res.vtl")
+  request_template  = file("${path.module}/resolvers/putData/put_resolver.req.vtl")
+  response_template = file("${path.module}/resolvers/putData/put_resolver.res.vtl")
 
   data_source = aws_appsync_datasource.exampleDatasource.name
 }
 
-resource "aws_appsync_resolver" "delete_item_resolver" {
+resource "aws_appsync_resolver" "delete_resolver" {
   api_id            = aws_appsync_graphql_api.example.id
   field             = "deleteItem"
   type              = "Mutation"
-  request_template  = file("${path.module}/resolvers/delete_item_resolver.req.vtl")
-  response_template = file("${path.module}/resolvers/delete_item_resolver.res.vtl")
+  request_template  = file("${path.module}/resolvers/deleteData/delete_resolver.req.vtl")
+  response_template = file("${path.module}/resolvers/deleteData/delete_resolver.res.vtl")
 
   data_source = aws_appsync_datasource.exampleDatasource.name
 }
