@@ -24,6 +24,13 @@ resource "aws_appsync_graphql_api" "example" {
 
 }
 
+# Create AppSync Api Key
+
+resource "aws_appsync_api_key" "example" {
+  api_id  = aws_appsync_graphql_api.example.id
+  expires = "2023-12-31T23:59:59Z"
+}
+
 # Create Resolvers API
 resource "aws_appsync_resolver" "example_resolver" {
   api_id            = aws_appsync_graphql_api.example.id
