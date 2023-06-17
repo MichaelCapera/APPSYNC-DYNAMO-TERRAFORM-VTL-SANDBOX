@@ -4,6 +4,8 @@ type Query {
 
 type Mutation {
   createRecord(input: RecordInput!): Record
+  updateRecord(id: ID!, field1: String!, field2: Int!): Record
+  deleteItem(id: ID!): RecordDelete
 }
 
 input RecordInput {
@@ -20,4 +22,10 @@ type Record {
 type Example {
   id: ID!
   name: String!
+}
+
+type RecordDelete {
+  id: ID!
+  field1: String!
+  field2: Boolean!
 }

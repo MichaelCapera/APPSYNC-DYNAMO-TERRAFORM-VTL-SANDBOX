@@ -1,0 +1,6 @@
+#set($resp = {
+  "id": "$context.result",
+  "field1": "$context.arguments",
+  "field2" : 1
+} )
+$util.toJson($resp)

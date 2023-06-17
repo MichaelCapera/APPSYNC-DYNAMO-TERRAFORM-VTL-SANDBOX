@@ -50,7 +50,27 @@ resource "aws_appsync_resolver" "another_resolver" {
   request_template  = file("${path.module}/resolvers/another_resolver.req.vtl")
   response_template = file("${path.module}/resolvers/another_resolver.res.vtl")
 
-  data_source       = aws_appsync_datasource.exampleDatasource.name
+  data_source = aws_appsync_datasource.exampleDatasource.name
+}
+
+resource "aws_appsync_resolver" "update_resolver" {
+  api_id            = aws_appsync_graphql_api.example.id
+  type              = "Mutation"
+  field             = "updateRecord"
+  request_template  = file("${path.module}/resolvers/update_resolver.req.vtl")
+  response_template = file("${path.module}/resolvers/update_resolver.res.vtl")
+
+  data_source = aws_appsync_datasource.exampleDatasource.name
+}
+
+resource "aws_appsync_resolver" "delete_item_resolver" {
+  api_id            = aws_appsync_graphql_api.example.id
+  field             = "deleteItem"
+  type              = "Mutation"
+  request_template  = file("${path.module}/resolvers/delete_item_resolver.req.vtl")
+  response_template = file("${path.module}/resolvers/delete_item_resolver.res.vtl")
+
+  data_source = aws_appsync_datasource.exampleDatasource.name
 }
 
 # Create IAM Policy
